@@ -1,0 +1,33 @@
+.button {
+  background: var(--color-bg-dark);
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  font-size: 1.6rem;
+  color: var(--color-white);
+  transition: all 300ms ease;
+}
+
+.button.lg {
+  padding: 0.8rem 1.5rem;
+  font-size: 1.2rem;
+}
+
+.button.danger {
+  background: var(--color-danger);
+}
+
+.button.primary {
+  background: var(--color-primary);
+}
+
+.button:hover {
+  cursor: pointer;
+  box-shadow: none;
+}
+.button:hover {
+  transform: scale(1.1);
+}
+
+.button.add__button {
+  width: 4rem;
+}

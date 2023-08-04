@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { BsPlusLg } from "react-icons/bs";
 import Header from "../components/Header/Header";
 import NoteList from "../components/NoteList/NoteList";
 
@@ -28,9 +26,6 @@ const Notes = ({ notes }) => {
         handleSearch={handleSearch}
         setShowSearch={setShowSearch}
       />
-      <Link to={"/create-note"} className="button add__button">
-        <BsPlusLg />
-      </Link>
       <NoteList filteredNotes={filteredNotes} />
     </section>
   );

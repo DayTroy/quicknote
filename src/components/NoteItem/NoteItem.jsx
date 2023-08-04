@@ -11,8 +11,8 @@ const NoteItem = ({ note }) => {
             ? note.title.substr(0, 50) + "..."
             : note.title}
         </h4>
-        <p>{note.details}</p>
-        <p>{note.date}</p>
+        <p className="note__details">{note.details}</p>
+        <p className="note__date">{note.date}</p>
       </Link>
     </div>
   );
