@@ -1,0 +1,14 @@
+.notes__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    grid-template-rows: auto;
+    margin-top: 2rem;
+    gap: 3rem;
+  }
+  
+  .empty__notes {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }

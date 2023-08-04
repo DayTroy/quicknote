@@ -1,51 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { CiSearch } from "react-icons/ci";
-import { MdClose } from "react-icons/md"
 import { Link } from "react-router-dom";
 import { BsPlusLg } from "react-icons/bs";
-import NoteItem from "../components/NoteItem";
+import Header from "../components/Header/Header";
+import NoteList from "../components/NoteList/NoteList";
 
 const Notes = ({ notes }) => {
   const [showSearch, setShowSearch] = useState(false);
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const [filteredNotes, setFilteredNotes] = useState(notes);
 
   const handleSearch = () => {
-    setFilteredNotes(notes.filter(note => {
-      if (note.title.toLowerCase().match(text.toLowerCase())) return note;
-    }))
-  }
+    setFilteredNotes(
+      notes.filter((note) => {
+        if (note.title.toLowerCase().match(text.toLowerCase())) return note;
+      })
+    );
+  };
 
-  useEffect(handleSearch, [text])
+  useEffect(handleSearch, [text]);
 
   return (
     <section>
-      <header className="notes__header">
-        {!showSearch && <h2>Notes</h2>}
-        {showSearch && (
-          <input
-            value={text}
-            autoFocus
-            type="text"
-            placeholder="Type something..."
-            onChange={(e) => {setText(e.target.value); handleSearch()}}
-          />
-        )}
-        <button
-          className="button"
-          onClick={() => setShowSearch(prevState => !prevState)}
-        >
-          {!showSearch ? <CiSearch /> : <MdClose />}
-        </button>
-      </header>
-      <div className="notes__container">
-        {filteredNotes.map((note) => (
-          <NoteItem key={note.id} note={note} />
-        ))}
-      </div>
+      <Header
+        showSearch={showSearch}
+        text={text}
+        setText={setText}
+        handleSearch={handleSearch}
+        setShowSearch={setShowSearch}
+      />
       <Link to={"/create-note"} className="button add__button">
         <BsPlusLg />
       </Link>
+      <NoteList filteredNotes={filteredNotes} />
     </section>
   );
 };

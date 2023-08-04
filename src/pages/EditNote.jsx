@@ -3,6 +3,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useState } from "react";
 import useCreateDate from "../hooks/useCreateDate";
+import NoteForm from "../components/NoteForm/NoteForm";
 
 const EditNote = ({ notes, setNotes }) => {
   const { id } = useParams();
@@ -14,24 +15,23 @@ const EditNote = ({ notes, setNotes }) => {
   const handleForm = (e) => {
     e.preventDefault();
     if (title && details) {
-      const newNote = {...note, title, details, date}
-      const newNotes = notes.map(note => {
+      const newNote = { ...note, title, details, date };
+      const newNotes = notes.map((note) => {
         if (note.id === id) {
           note = newNote;
         }
-        return note
-      })
-      setNotes(newNotes)
+        return note;
+      });
+      setNotes(newNotes);
     }
     navigate("/");
-  }
+  };
 
   const handleDelete = () => {
-    const newNotes = notes.filter(note => note.id !== id);
+    const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
-    navigate("/")
-  }
-
+    navigate("/");
+  };
 
   return (
     <section>
@@ -39,26 +39,19 @@ const EditNote = ({ notes, setNotes }) => {
         <Link to="/" className="button">
           <IoIosArrowBack />
         </Link>
-        <button className="button lg primary" onClick={handleForm}>Save</button>
+        <button className="button lg primary" onClick={handleForm}>
+          Save
+        </button>
         <button className="button danger" onClick={handleDelete}>
           <RiDeleteBin6Line />
         </button>
       </header>
-      <form className="create-note__form">
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          autoFocus
-        />
-        <textarea
-          rows="28"
-          placeholder="Note details..."
-          value={details}
-          onChange={(e) => setDetails(e.target.value)}
-        ></textarea>
-      </form>
+      <NoteForm
+        title={title}
+        details={details}
+        setTitle={setTitle}
+        setDetails={setDetails}
+      />
     </section>
   );
 };
