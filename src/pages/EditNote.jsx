@@ -26,6 +26,13 @@ const EditNote = ({ notes, setNotes }) => {
     navigate("/");
   }
 
+  const handleDelete = () => {
+    const newNotes = notes.filter(note => note.id !== id);
+    setNotes(newNotes);
+    navigate("/")
+  }
+
+
   return (
     <section>
       <header className="create-note__header">
@@ -33,7 +40,7 @@ const EditNote = ({ notes, setNotes }) => {
           <IoIosArrowBack />
         </Link>
         <button className="button lg primary" onClick={handleForm}>Save</button>
-        <button className="button danger">
+        <button className="button danger" onClick={handleDelete}>
           <RiDeleteBin6Line />
         </button>
       </header>
