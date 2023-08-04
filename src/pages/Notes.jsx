@@ -1,31 +1,53 @@
-import React from 'react'
-import {CiSearch} from "react-icons/ci"
-import {Link} from "react-router-dom";
-import {BsPlusLg} from "react-icons/bs"
+import React, { useEffect, useState } from "react";
+import { CiSearch } from "react-icons/ci";
+import { MdClose } from "react-icons/md"
+import { Link } from "react-router-dom";
+import { BsPlusLg } from "react-icons/bs";
 import NoteItem from "../components/NoteItem";
 
+const Notes = ({ notes }) => {
+  const [showSearch, setShowSearch] = useState(false);
+  const [text, setText] = useState('');
+  const [filteredNotes, setFilteredNotes] = useState(notes);
 
-const Notes = ({notes}) => {
+  const handleSearch = () => {
+    setFilteredNotes(notes.filter(note => {
+      if (note.title.toLowerCase().match(text.toLowerCase())) return note;
+    }))
+  }
+
+  useEffect(handleSearch, [text])
+
   return (
     <section>
       <header className="notes__header">
-        <h2>Notes</h2>
-        {/* <input autoFocus
-               type="text" 
-               placeholder='Type something...'
-               name="" 
-               id="" /> */}
-        <button className='button'><CiSearch/></button>
+        {!showSearch && <h2>Notes</h2>}
+        {showSearch && (
+          <input
+            value={text}
+            autoFocus
+            type="text"
+            placeholder="Type something..."
+            onChange={(e) => {setText(e.target.value); handleSearch()}}
+          />
+        )}
+        <button
+          className="button"
+          onClick={() => setShowSearch(prevState => !prevState)}
+        >
+          {!showSearch ? <CiSearch /> : <MdClose />}
+        </button>
       </header>
       <div className="notes__container">
-          {
-            notes.map(note => <NoteItem key={note.id} 
-            note={note} />)
-          }
+        {filteredNotes.map((note) => (
+          <NoteItem key={note.id} note={note} />
+        ))}
       </div>
-      <Link to={"/create-note"} className='button add__button'><BsPlusLg /></Link>
+      <Link to={"/create-note"} className="button add__button">
+        <BsPlusLg />
+      </Link>
     </section>
-  )
-}
+  );
+};
 
-export default Notes
+export default Notes;
