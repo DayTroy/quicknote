@@ -1,12 +1,11 @@
 import React from 'react'
 import {CiSearch} from "react-icons/ci"
-import static_notes from "../static_notes";
 import {Link} from "react-router-dom";
 import {BsPlusLg} from "react-icons/bs"
 import NoteItem from "../components/NoteItem";
 
 
-const Notes = () => {
+const Notes = ({notes}) => {
   return (
     <section>
       <header className="notes__header">
@@ -20,11 +19,11 @@ const Notes = () => {
       </header>
       <div className="notes__container">
           {
-            static_notes.map(note => <NoteItem key={note.id} 
+            notes.map(note => <NoteItem key={note.id} 
             note={note} />)
           }
       </div>
-      <Link className='button add__button'><BsPlusLg /></Link>
+      <Link to={"/create-note"} className='button add__button'><BsPlusLg /></Link>
     </section>
   )
 }
