@@ -14,7 +14,7 @@ const Header = ({ showSearch, text, setText, handleSearch, setShowSearch }) => {
 
   return (
     <header className="notes__header">
-      <a href="https://github.com/DayTroy/timeflow" target="_blank">
+      <a href="https://github.com/DayTroy/quicknote" target="_blank">
         <img src={projectLogo} className="header__logo" />
       </a>
       <div className="header-wrapper">
