@@ -1,13 +1,14 @@
 import React from 'react'
 import "./NoteItem.css";
+import { Link } from 'react-router-dom';
 
-const NoteItem = () => {
+const NoteItem = ({note}) => {
   return (
     <div className='note-item'>
-        <p className="note-item__title">Заголовок</p>
-        <p className="note-item__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius harum labore, tempore expedita veritatis doloremque, maxime illum aspernatur tenetur molestias saepe quae corporis amet ad quas. Dicta nesciunt reprehenderit minima?</p>
-        <button className='button'>Delete</button>
-        <button className='button'>Change</button>
+        <Link to={`edit-note/${note.id}`} className='note'>
+          <h4>{note.title.length > 50 ? (note.title.substr(0, 50)) + "..." : note.title}</h4>
+          <p>{note.date}</p>
+        </Link>
     </div>
   )
 }
