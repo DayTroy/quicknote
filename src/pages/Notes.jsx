@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header/Header";
+import { Filter } from "../components/Filter/Filter";
 import NoteList from "../components/NoteList/NoteList";
-import {AiOutlineFilter} from "react-icons/ai"
 
 const Notes = ({ notes, setNotes }) => {
   const [showSearch, setShowSearch] = useState(false);
@@ -24,13 +24,10 @@ const Notes = ({ notes, setNotes }) => {
     setNotes(updatedNotes);
     localStorage.setItem("notes", JSON.stringify(updatedNotes));
 
-    // Обновить filteredNotes на основе нового состояния важности
     if (showOnlyImportant) {
       setFilteredNotes(updatedNotes.filter((note) => note.important));
     }
   };
-  
-  
 
   useEffect(handleSearch, [text]);
 
@@ -54,23 +51,14 @@ const Notes = ({ notes, setNotes }) => {
         handleSearch={handleSearch}
         setShowSearch={setShowSearch}
       />
-      <div className="filter-dropdown">
-        <AiOutlineFilter className="filter-icon" onClick={() => setIsDropdownOpen(!isDropdownOpen)} />
-        {isDropdownOpen && (
-          <select
-            id="filter-select"
-            className={`filter-select ${showOnlyImportant ? "custom-select" : ""}`}
-            value={showOnlyImportant}
-            onChange={(e) => handleFilterChange(e.target.value)}
-          >
-            <option value={false}>All</option>
-            <option value={true}>Important</option>
-          </select>
-        )}
-      </div>
+      <Filter
+        isDropdownOpen={isDropdownOpen}
+        setIsDropdownOpen={setIsDropdownOpen}
+        handleFilterChange={handleFilterChange}
+      />
       <NoteList
         filteredNotes={filteredNotes}
-        handleSetImportant={handleSetImportant} 
+        handleSetImportant={handleSetImportant}
         showOnlyImportant={showOnlyImportant}
         setShowOnlyImportant={setShowOnlyImportant}
       />

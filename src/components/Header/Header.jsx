@@ -7,7 +7,7 @@ import projectLogo from "../../assets/project-logo.svg";
 
 import "./Header.css";
 
-const Header = ({ showSearch, text, setText, handleSearch, setShowSearch}) => {
+const Header = ({ showSearch, text, setText, handleSearch, setShowSearch }) => {
   const handleClick = () => {
     setShowSearch((prevState) => !prevState);
   };
@@ -38,7 +38,6 @@ const Header = ({ showSearch, text, setText, handleSearch, setShowSearch}) => {
         <button className="button button__search" onClick={handleClick}>
           {!showSearch ? <CiSearch /> : <MdClose />}
         </button>
-        
       </div>
     </header>
   );

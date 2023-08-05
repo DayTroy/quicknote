@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineEdit } from "react-icons/ai";
-import {MdLabelImportant, MdLabelImportantOutline} from "react-icons/md";
+import { MdLabelImportant, MdLabelImportantOutline } from "react-icons/md";
 import "./NoteItem.css";
 
 const NoteItem = ({ note, handleSetImportant }) => {
@@ -16,14 +16,14 @@ const NoteItem = ({ note, handleSetImportant }) => {
       <p className="note__details">{note.details}</p>
       <p className="note__date">{note.date}</p>
       <div className="note-buttons">
-      <Link to={`edit-note/${note.id}`}>
-        <button className="button">
-          <AiOutlineEdit></AiOutlineEdit>
+        <Link to={`edit-note/${note.id}`}>
+          <button className="button">
+            <AiOutlineEdit></AiOutlineEdit>
+          </button>
+        </Link>
+        <button className="button" onClick={toggleImportant}>
+          {!note.important ? <MdLabelImportantOutline /> : <MdLabelImportant />}
         </button>
-      </Link>
-      <button className="button" onClick={toggleImportant}>
-          {!note.important ? <MdLabelImportantOutline/> : <MdLabelImportant/>}
-      </button>
       </div>
     </div>
   );

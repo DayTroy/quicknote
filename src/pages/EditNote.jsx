@@ -49,7 +49,7 @@ const EditNote = ({ notes, setNotes }) => {
 
   return (
     <section>
-      <header className="create-note__header">
+      <header className="note__header">
         <Link to="/" className="button">
           <IoIosArrowBack />
         </Link>

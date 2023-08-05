@@ -1,8 +1,9 @@
 import React from "react";
+import "./NoteForm.css";
 
 const NoteForm = ({ title, details, setTitle, setDetails, handleSubmit }) => {
   return (
-    <form className="create-note__form" onSubmit={handleSubmit}>
+    <form className="note__form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Title"

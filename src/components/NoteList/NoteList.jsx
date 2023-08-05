@@ -4,20 +4,24 @@ import "./NoteList.css";
 
 const NoteList = ({ filteredNotes, handleSetImportant, showOnlyImportant }) => {
   const filteredNotesToDisplay = showOnlyImportant
-  ? filteredNotes.filter((note) => note.important)
-  : filteredNotes;
+    ? filteredNotes.filter((note) => note.important)
+    : filteredNotes;
 
-return (
-  <div className="notes__container">
-    {filteredNotesToDisplay.length === 0 ? (
-      <p className="empty__notes">No notes found =/</p>
-    ) : (
-      filteredNotesToDisplay.map((note) => (
-        <NoteItem key={note.id} note={note}  handleSetImportant={handleSetImportant} />
-      ))
-    )}
-  </div>
-);
+  return (
+    <div className="notes__container">
+      {filteredNotesToDisplay.length === 0 ? (
+        <p className="empty__notes">No notes found =/</p>
+      ) : (
+        filteredNotesToDisplay.map((note) => (
+          <NoteItem
+            key={note.id}
+            note={note}
+            handleSetImportant={handleSetImportant}
+          />
+        ))
+      )}
+    </div>
+  );
 };
 
 export default NoteList;
