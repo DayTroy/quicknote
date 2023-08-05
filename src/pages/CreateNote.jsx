@@ -9,7 +9,7 @@ import NoteForm from "../components/NoteForm/NoteForm";
 const CreateNote = ({ setNotes }) => {
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
-  const [important, setImportant] = useState(false); 
+  const [important, setImportant] = useState(false);
   const date = useCreateDate();
   const navigate = useNavigate();
 
@@ -21,7 +21,6 @@ const CreateNote = ({ setNotes }) => {
       navigate("/");
     }
   };
-
 
   const toggleImportant = () => {
     setImportant(!important);
@@ -37,11 +36,7 @@ const CreateNote = ({ setNotes }) => {
           Save
         </button>
         <button className="button " onClick={toggleImportant}>
-          {!important ? (
-            <MdLabelImportantOutline />
-          ) : (
-            <MdLabelImportant />
-          )}
+          {!important ? <MdLabelImportantOutline /> : <MdLabelImportant />}
         </button>
       </header>
       <NoteForm
@@ -56,4 +51,3 @@ const CreateNote = ({ setNotes }) => {
 };
 
 export default CreateNote;
-

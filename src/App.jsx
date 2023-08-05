@@ -4,6 +4,7 @@ import CreateNote from "./pages/CreateNote";
 import EditNote from "./pages/EditNote";
 import { useEffect, useState } from "react";
 import "./App.css";
+import sampleNotes from "../src/utils/sampleNotes"
 
 const App = () => {
   const [notes, setNotes] = useState(

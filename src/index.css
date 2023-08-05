@@ -79,6 +79,42 @@ h2 {
   font-size: 2rem;
 }
 
+.filter-dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.filter-icon {
+  font-size: 3rem;
+  padding-left: 1rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.filter-icon:hover {
+  transform: scale(1.1);
+}
+
+.filter-select {
+  appearance: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.filter-select:hover{
+  transform: scale(1.1);
+}
+
+
 @media screen and (max-width: 600px) {
   #app {
     width: 100vw;
