@@ -26,6 +26,7 @@ const Notes = ({ notes }) => {
   
 
   useEffect(handleSearch, [text]);
+
   const handleFilterChange = (value) => {
     setShowOnlyImportant(value === "true");
   };
@@ -62,9 +63,9 @@ const Notes = ({ notes }) => {
       </div>
       <NoteList
         filteredNotes={filteredNotes}
-        showOnlyImportant={showOnlyImportant}
-        setFilteredNotes={setFilteredNotes}
         handleSetImportant={handleSetImportant} 
+        showOnlyImportant={showOnlyImportant}
+        setShowOnlyImportant={setShowOnlyImportant}
       />
     </section>
   );
