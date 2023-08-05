@@ -11,7 +11,7 @@ const NoteForm = ({ title, details, setTitle, setDetails, handleSubmit }) => {
         autoFocus
       />
       <textarea
-        rows="28"
+        rows="22"
         placeholder="Note details..."
         value={details}
         onChange={(e) => setDetails(e.target.value)}

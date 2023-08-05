@@ -26,7 +26,7 @@ const Notes = ({ notes }) => {
         handleSearch={handleSearch}
         setShowSearch={setShowSearch}
       />
-      <NoteList filteredNotes={filteredNotes} />
+      <NoteList filteredNotes={filteredNotes} setFilteredNotes={setFilteredNotes}/>
     </section>
   );
 };

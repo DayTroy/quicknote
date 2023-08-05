@@ -1,6 +1,7 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { MdLabelImportant, MdLabelImportantOutline } from "react-icons/md";
 import { useState } from "react";
 import useCreateDate from "../hooks/useCreateDate";
 import NoteForm from "../components/NoteForm/NoteForm";
@@ -12,6 +13,15 @@ const EditNote = ({ notes, setNotes }) => {
   const [details, setDetails] = useState(note.details);
   const date = useCreateDate();
   const navigate = useNavigate();
+
+  const handleSetImportant = (noteId, currentImportant) => {
+    const updatedNotes = notes.map((note) =>
+      note.id === noteId ? { ...note, important: !currentImportant } : note
+    );
+    setNotes(updatedNotes);
+    localStorage.setItem("notes", JSON.stringify(updatedNotes));
+  };
+
   const handleForm = (e) => {
     e.preventDefault();
     if (title && details) {
@@ -33,6 +43,10 @@ const EditNote = ({ notes, setNotes }) => {
     navigate("/");
   };
 
+  const toggleImportant = () => {
+    handleSetImportant(note.id, note.important);
+  };
+
   return (
     <section>
       <header className="create-note__header">
@@ -41,6 +55,9 @@ const EditNote = ({ notes, setNotes }) => {
         </Link>
         <button className="button lg primary" onClick={handleForm}>
           Save
+        </button>
+        <button className="button " onClick={toggleImportant}>
+          {!note.important ? <MdLabelImportantOutline /> : <MdLabelImportant />}
         </button>
         <button className="button danger" onClick={handleDelete}>
           <RiDeleteBin6Line />
