@@ -11,11 +11,11 @@
 }
 
 :root {
-  --color-bg-dark: #3a3a3a;
-  --color-bg-black: #111111;
+  --color-bg-dark: #9d4edd;
+  --color-bg-black: #3c096c;
   --color-white: #fefefe;
-  --color-primary: #474448;
-  --color-danger: rgb(249, 84, 84);
+  --color-primary: #7b2cbf;
+  --color-danger: #240046;
 }
 
 body {
@@ -27,17 +27,17 @@ body {
   line-height: 1.5;
 }
 
-#app {
-  background: var(--color-bg-black);
-  height: 48rem;
-  width: 24rem;
-  padding: 2rem 1.6rem;
-  overflow-y: scroll;
-  position: relative;
-}
-
 ::-webkit-scrollbar {
   display: none;
+}
+
+.home {
+  width: 960px;
+  padding-bottom: 3rem;
+}
+
+.create, .edit {
+  margin-top: 2rem;
 }
 
 h2,
@@ -55,10 +55,78 @@ h2 {
   align-items: center;
 }
 
+@media screen and (max-width: 1000px) {
+  .home {
+    width: 860px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .home {
+    width: 760px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .home {
+    width: 660px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .home {
+    width: 560px;
+  }
+}
+
 @media screen and (max-width: 600px) {
-  #app {
-    width: 100vw;
-    height: 100vh;
-    padding: 2rem 1rem;
+  .home {
+    width: 460px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .home {
+    width: 360px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .home {
+    width: 260px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .create {
+    width: 20rem
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .create {
+    width: 19rem
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .edit {
+    width: 25rem
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .edit {
+    width: 23rem;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .edit {
+    width: 21rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .edit {
+    width: 19rem;
   }
 }

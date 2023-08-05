@@ -23,8 +23,8 @@ export const Filter = ({
           value={showOnlyImportant}
           onChange={(e) => handleFilterChange(e.target.value)}
         >
-          <option value={false}>All</option>
-          <option value={true}>Important</option>
+          <option value={false}>Все</option>
+          <option value={true}>Важные</option>
         </select>
       )}
     </div>

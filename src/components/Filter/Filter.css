@@ -1,8 +1,7 @@
 .filter-dropdown {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .filter-icon {
@@ -34,13 +33,14 @@
 
 @media screen and (max-width: 600px) {
   .filter-dropdown {
-    margin-top: 12rem;
+    margin-top: 15rem;
   }
 }
 
 @media screen and (max-width: 400px) {
   .filter-icon {
     font-size: 2rem;
+    margin-right: 1rem;
   }
 }
 

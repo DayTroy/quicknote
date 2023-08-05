@@ -13,7 +13,7 @@ const Header = ({ showSearch, text, setText, setShowSearch }) => {
   };
 
   return (
-    <header className="notes__header">
+    <header className="header">
       <a href="https://github.com/DayTroy/quicknote" target="_blank">
         <img src={projectLogo} className="header__logo" />
       </a>
@@ -28,7 +28,7 @@ const Header = ({ showSearch, text, setText, setShowSearch }) => {
             value={text}
             autoFocus
             type="text"
-            placeholder="Type something..."
+            placeholder="Найти..."
             onChange={(e) => {
               setText(e.target.value);
             }}

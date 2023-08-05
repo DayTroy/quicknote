@@ -6,6 +6,8 @@
 }
 
 .note__form input,
+.note__form textarea,
+.note__form input,
 .note__form textarea {
   width: 100%;
   padding: 0.5rem 1rem;
@@ -17,6 +19,7 @@
   border: 0.1rem dashed white;
   border-radius: 0.5rem;
 }
+
 
 .note__form input {
   font-size: 2rem;

@@ -48,13 +48,13 @@ const EditNote = ({ notes, setNotes }) => {
   };
 
   return (
-    <section>
+    <section className="edit">
       <header className="note__header">
         <Link to="/" className="button">
           <IoIosArrowBack />
         </Link>
         <button className="button lg primary" onClick={handleForm}>
-          Save
+          Сохранить
         </button>
         <button className="button " onClick={toggleImportant}>
           {!note.important ? <MdLabelImportantOutline /> : <MdLabelImportant />}

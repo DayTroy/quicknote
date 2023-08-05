@@ -30,4 +30,11 @@
 
 .button.add__button {
   width: 4rem;
+  padding-left: 1.2rem;
+}
+
+@media screen and (max-width: 400rem) {
+  .button.add__button {
+    padding-left: 1rem;
+  }
 }

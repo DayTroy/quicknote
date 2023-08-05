@@ -9,7 +9,7 @@ const NoteList = ({ filteredNotes, handleSetImportant, showOnlyImportant }) => {
   return (
     <div className="notes__container">
       {filteredNotesToDisplay.length === 0 ? (
-        <p className="empty__notes">No notes found =/</p>
+        <p className="empty__notes">Заметка не найдена =/</p>
       ) : (
         filteredNotesToDisplay.map((note) => (
           <NoteItem

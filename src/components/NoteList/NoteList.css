@@ -1,17 +1,16 @@
 .notes__container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  margin-top: 2rem;
   gap: 3rem;
 }
 
 .empty__notes {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 60%;
   transform: translate(-50%, -50%);
-  font-size: 3rem;
-  width: 15rem;
+  font-size: 1.7rem;
+  width: 20rem;
 }
 
 @media screen and (max-width: 600px) {
@@ -21,6 +20,14 @@
   }
   .empty__notes {
     top: 60%;
-    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .empty__notes {
+    word-break: normal;
+    font-size: 1.5rem;
+    padding: 0 auto;
+    transform: translate(-45%);
   }
 }

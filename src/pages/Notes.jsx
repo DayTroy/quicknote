@@ -39,10 +39,8 @@ const Notes = ({ notes, setNotes }) => {
     setFilteredNotes(updatedNotes);
   }, [showOnlyImportant, notes]);
 
-  console.log(notes);
-
   return (
-    <section>
+    <section className="home">
       <Header
         showSearch={showSearch}
         text={text}

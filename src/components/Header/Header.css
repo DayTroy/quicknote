@@ -1,12 +1,10 @@
-.notes__header {
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  z-index: 9;
-  background: var(--color-bg-black);
-  border-bottom: 0.1rem solid white;
-  padding: 0 1.6rem 1.5rem;
+  padding-top: 2rem;
+  z-index: 10;
 }
 
 .header-wrapper {
@@ -14,7 +12,7 @@
   align-items: center;
   width: 100%;
   margin-top: 1rem;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .header__logo {
@@ -32,7 +30,7 @@
   margin: 0 2rem;
 }
 
-.notes__header input {
+.header input {
   padding: 0.7rem 1rem;
   background: transparent;
   border: 1px solid var(--color-bg-dark);
@@ -44,17 +42,18 @@
   margin-left: 3rem;
   margin-right: 3rem;
 }
-.notes__header input:focus {
+.header input:focus {
   transform: scale(1.1);
 }
 
 @media screen and (max-width: 600px) {
-  .notes__header {
+  .header {
     width: 100%;
     padding: 2rem 1rem;
     position: fixed;
     top: 0;
     left: 0;
+    background-color: var(--color-danger);
   }
 }
 
@@ -65,7 +64,7 @@
 }
 
 @media screen and (max-width: 420px) {
-  .notes__header input {
+  .header input {
     font-size: 0.9rem;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
@@ -82,7 +81,7 @@
   .header__title {
     font-size: 1.5rem;
   }
-  .notes__header input {
+  .header input {
     font-size: 0.8rem;
     margin-left: 1rem;
     margin-right: 1rem;

@@ -6,14 +6,14 @@ const NoteForm = ({ title, details, setTitle, setDetails, handleSubmit }) => {
     <form className="note__form" onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Title"
+        placeholder="Заголовок"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         autoFocus
       />
       <textarea
         rows="22"
-        placeholder="Note details..."
+        placeholder="Детали заметок..."
         value={details}
         onChange={(e) => setDetails(e.target.value)}
       ></textarea>

@@ -27,13 +27,13 @@ const CreateNote = ({ setNotes }) => {
   };
 
   return (
-    <section>
+    <section className="create">
       <header className="note__header">
         <Link to="/" className="button">
           <IoIosArrowBack />
         </Link>
         <button className="button lg primary" onClick={handleSubmit}>
-          Save
+          Сохранить
         </button>
         <button className="button " onClick={toggleImportant}>
           {!important ? <MdLabelImportantOutline /> : <MdLabelImportant />}
