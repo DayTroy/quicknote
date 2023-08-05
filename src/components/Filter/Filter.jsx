@@ -10,23 +10,23 @@ export const Filter = ({
 }) => {
   return (
     <div className="filter-dropdown">
-      <AiOutlineFilter
-        className="filter-icon"
-        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-      />
-      {isDropdownOpen && (
+      <div className="select-container">
+        <div className="icon-container">
+          <AiOutlineFilter
+            className="filter-icon"
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          />
+        </div>
+
         <select
-          id="filter-select"
-          className={`filter-select ${
-            showOnlyImportant ? "custom-select" : ""
-          }`}
+          className="select-box"
           value={showOnlyImportant}
           onChange={(e) => handleFilterChange(e.target.value)}
         >
-          <option value={false}>Все</option>
+          <option className="option" value={false}>Все</option>
           <option value={true}>Важные</option>
         </select>
-      )}
+      </div>
     </div>
   );
 };

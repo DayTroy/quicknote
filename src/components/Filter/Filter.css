@@ -7,29 +7,44 @@
 .filter-icon {
   font-size: 3rem;
   margin-right: 0.5rem;
-  cursor: pointer;
   transition: 0.3s;
 }
 
-.filter-icon:hover {
-  transform: scale(1.1);
+.select-container{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 50px;
 }
 
-.filter-select {
+.select-box {
   appearance: none;
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: white;
+  width: 9rem;
+  color: white;
+  background-color: var(--color-primary);
   font-size: 1rem;
+  padding-left: 4rem;
   outline: none;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.filter-select:hover {
+.select-box:hover {
   transform: scale(1.1);
 }
+
+.select-container .icon-container{
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
 
 @media screen and (max-width: 600px) {
   .filter-dropdown {
