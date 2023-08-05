@@ -6,7 +6,7 @@ import "./NoteItem.css";
 
 const NoteItem = ({ note, handleSetImportant }) => {
   const toggleImportant = () => {
-    handleSetImportant(note.id);
+    handleSetImportant(note.id, note.important);
   };
   return (
     <div className="note">

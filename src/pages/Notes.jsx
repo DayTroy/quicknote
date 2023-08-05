@@ -3,7 +3,7 @@ import Header from "../components/Header/Header";
 import NoteList from "../components/NoteList/NoteList";
 import {AiOutlineFilter} from "react-icons/ai"
 
-const Notes = ({ notes }) => {
+const Notes = ({ notes, setNotes }) => {
   const [showSearch, setShowSearch] = useState(false);
   const [text, setText] = useState("");
   const [filteredNotes, setFilteredNotes] = useState(notes);
@@ -17,12 +17,19 @@ const Notes = ({ notes }) => {
     );
   };
 
-  const handleSetImportant = (noteId) => {
-    const updatedNotes = filteredNotes.map((note) =>
-      note.id === noteId ? { ...note, important: !note.important } : note
+  const handleSetImportant = (noteId, currentImportant) => {
+    const updatedNotes = notes.map((note) =>
+      note.id === noteId ? { ...note, important: !currentImportant } : note
     );
-    setFilteredNotes(updatedNotes);
+    setNotes(updatedNotes);
+    localStorage.setItem("notes", JSON.stringify(updatedNotes));
+
+    // Обновить filteredNotes на основе нового состояния важности
+    if (showOnlyImportant) {
+      setFilteredNotes(updatedNotes.filter((note) => note.important));
+    }
   };
+  
   
 
   useEffect(handleSearch, [text]);
@@ -31,12 +38,12 @@ const Notes = ({ notes }) => {
     setShowOnlyImportant(value === "true");
   };
   useEffect(() => {
+    let updatedNotes = notes;
     if (showOnlyImportant) {
-      setFilteredNotes(filteredNotes.filter((note) => note.important));
-    } else {
-      handleSearch();
+      updatedNotes = updatedNotes.filter((note) => note.important);
     }
-  }, [showOnlyImportant]);
+    setFilteredNotes(updatedNotes);
+  }, [showOnlyImportant, notes]);
 
   return (
     <section>

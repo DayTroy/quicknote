@@ -13,7 +13,7 @@ return (
       <p className="empty__notes">No notes found =/</p>
     ) : (
       filteredNotesToDisplay.map((note) => (
-        <NoteItem key={note.id} note={note} handleSetImportant={handleSetImportant} />
+        <NoteItem key={note.id} note={note}  handleSetImportant={handleSetImportant} />
       ))
     )}
   </div>
