@@ -6,7 +6,6 @@ const NoteList = ({ filteredNotes, handleSetImportant, showOnlyImportant }) => {
   const filteredNotesToDisplay = showOnlyImportant
     ? filteredNotes.filter((note) => note.important)
     : filteredNotes;
-
   return (
     <div className="notes__container">
       {filteredNotesToDisplay.length === 0 ? (

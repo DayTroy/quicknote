@@ -23,10 +23,6 @@ const Notes = ({ notes, setNotes }) => {
     );
     setNotes(updatedNotes);
     localStorage.setItem("notes", JSON.stringify(updatedNotes));
-
-    if (showOnlyImportant) {
-      setFilteredNotes(updatedNotes.filter((note) => note.important));
-    }
   };
 
   useEffect(handleSearch, [text]);
@@ -34,6 +30,7 @@ const Notes = ({ notes, setNotes }) => {
   const handleFilterChange = (value) => {
     setShowOnlyImportant(value === "true");
   };
+
   useEffect(() => {
     let updatedNotes = notes;
     if (showOnlyImportant) {
@@ -41,6 +38,8 @@ const Notes = ({ notes, setNotes }) => {
     }
     setFilteredNotes(updatedNotes);
   }, [showOnlyImportant, notes]);
+
+  console.log(notes);
 
   return (
     <section>

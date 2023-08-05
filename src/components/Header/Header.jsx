@@ -7,7 +7,7 @@ import projectLogo from "../../assets/project-logo.svg";
 
 import "./Header.css";
 
-const Header = ({ showSearch, text, setText, handleSearch, setShowSearch }) => {
+const Header = ({ showSearch, text, setText, setShowSearch }) => {
   const handleClick = () => {
     setShowSearch((prevState) => !prevState);
   };
@@ -31,7 +31,6 @@ const Header = ({ showSearch, text, setText, handleSearch, setShowSearch }) => {
             placeholder="Type something..."
             onChange={(e) => {
               setText(e.target.value);
-              handleSearch();
             }}
           />
         )}

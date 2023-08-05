@@ -16,7 +16,7 @@ const CreateNote = ({ setNotes }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (title && details) {
-      const note = { id: uuid(), title, details, date, important };
+      const note = { id: uuid(), title, details, date, important: important };
       setNotes((prevNotes) => [note, ...prevNotes]);
       navigate("/");
     }
