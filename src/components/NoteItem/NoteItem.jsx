@@ -9,21 +9,29 @@ const NoteItem = ({ note, handleSetImportant }) => {
     handleSetImportant(note.id, note.important);
   };
   return (
-    <div className="note">
-      <h4>
-        {note.title.length > 50 ? note.title.substr(0, 50) + "..." : note.title}
-      </h4>
-      <p className="note__details">{note.details}</p>
-      <p className="note__date">{note.date}</p>
-      <div className="note-buttons">
-        <Link to={`edit-note/${note.id}`}>
-          <button className="button">
-            <AiOutlineEdit></AiOutlineEdit>
+    <div className="note-wrapper">
+      <div className="note">
+        <h4 className="note__title">
+          {note.title.length > 50
+            ? note.title.substr(0, 50) + "..."
+            : note.title}
+        </h4>
+        <p className="note__details">{note.details}</p>
+        <p className="note__date">{note.date}</p>
+        <div className="note-buttons">
+          <Link to={`edit-note/${note.id}`}>
+            <button className="button">
+              <AiOutlineEdit></AiOutlineEdit>
+            </button>
+          </Link>
+          <button className="button" onClick={toggleImportant}>
+            {!note.important ? (
+              <MdLabelImportantOutline />
+            ) : (
+              <MdLabelImportant />
+            )}
           </button>
-        </Link>
-        <button className="button" onClick={toggleImportant}>
-          {!note.important ? <MdLabelImportantOutline /> : <MdLabelImportant />}
-        </button>
+        </div>
       </div>
     </div>
   );

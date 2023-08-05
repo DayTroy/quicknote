@@ -11,6 +11,7 @@
   margin-top: 1rem;
 }
 
+
 .note:hover {
   opacity: 0.9;
   transform: scale(1.1);
@@ -21,12 +22,17 @@
   opacity: 0.85;
 }
 
+.note__title{
+  word-wrap: break-word;
+  text-align: start;
+}
+
 .note__details {
   word-wrap: break-word;
   text-align: start;
 }
 .note__date {
-  text-align: center;
+  text-align: end;
 }
 
 .note-buttons {
